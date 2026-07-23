@@ -76,7 +76,7 @@ export interface IStepProcessor {
 
 هر وام فقط **یک** فیلد `status` (LoanStatus enum) دارد. وضعیت‌های terminal (APPROVED, REJECTED, MANUAL_REVIEW, EXPIRED, CANCELLED) پردازش را متوقف می‌کنند.
 
-**Idempotency (FR-9):** قبل از اجرای هر مرحله، `WorkflowService` رکورد `LoanStep` completed قبلی را بررسی می‌کند. فراخوانی重复 `POST /process` بدون side-effect — مرحله‌ای که قبلاً PASS شده skip می‌شود، مرحله‌ای که FAIL شده بدون اجرای مجدد REJECTED remains.
+**Idempotency (FR-9):** قبل از اجرای هر مرحله، `WorkflowService` رکورد `LoanStep` completed قبلی را بررسی می‌کند. فراخوانی `POST /process` بدون side-effect — مرحله‌ای که قبلاً PASS شده skip می‌شود، مرحله‌ای که FAIL شده بدون اجرای مجدد REJECTED remains.
 
 **Alternative‌های بررسی شده:**
 
